@@ -207,6 +207,7 @@ class _ListBookPageState extends State<ListBookPage> {
         title: Text(selectedIndex == 0 ? 'Daftar Buku' : 'Profil'),
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 143, 124, 117),
+        foregroundColor: Colors.white,
         actions: selectedIndex == 0
             ? [
                 IconButton(

@@ -11,8 +11,8 @@ class DbHelper {
       join(dbpath, 'manajemen_buku_pribadi.db'),
       version: 1,
       onCreate: (db, version) async {
-        // Creating the 'users' table with correct AUTOINCREMENT syntax
-        await db.execute('''
+        // Creating the 'users' table with correct AUTOINCREMENT syntax // data untuk users//
+        await db.execute(''' 
           CREATE TABLE users(
           id INTEGER PRIMARY KEY AUTOINCREMENT, 
           name TEXT, 
@@ -22,6 +22,7 @@ class DbHelper {
           password TEXT
           )
         ''');
+        // data untuk books//
         await db.execute('''
           CREATE TABLE books(
           id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -12,7 +12,8 @@ class BookDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Detail buku'),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 136, 106, 95),
+        backgroundColor: const Color.fromARGB(255, 78, 61, 55),
+        foregroundColor: Colors.white,
       ),
       backgroundColor: const Color.fromARGB(255, 216, 197, 190),
       body: Center(

@@ -37,6 +37,7 @@ class _EditBookPageState extends State<EditBookPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Edit Book'),
+        foregroundColor: Colors.white,
         backgroundColor: const Color.fromARGB(255, 129, 104, 95),
       ),
       backgroundColor: const Color.fromARGB(255, 241, 220, 213),
