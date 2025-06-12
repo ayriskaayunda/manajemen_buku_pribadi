@@ -6,8 +6,11 @@ class EditBookPage extends StatefulWidget {
   final BookModel book;
   final Function onBookEdited;
 
-  const EditBookPage({Key? key, required this.book, required this.onBookEdited})
-    : super(key: key);
+  const EditBookPage({
+    super.key,
+    required this.book,
+    required this.onBookEdited,
+  });
 
   @override
   _EditBookPageState createState() => _EditBookPageState();
@@ -23,16 +26,20 @@ class _EditBookPageState extends State<EditBookPage> {
   @override
   void initState() {
     super.initState();
-    titleController.text = widget.book.title!;
-    authorController.text = widget.book.author!;
-    descriptionController.text = widget.book.description!;
-    genreController.text = widget.book.genre!;
+    titleController.text = widget.book.title;
+    authorController.text = widget.book.author;
+    descriptionController.text = widget.book.description;
+    genreController.text = widget.book.genre;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Edit Book')),
+      appBar: AppBar(
+        title: Text('Edit Book'),
+        backgroundColor: const Color.fromARGB(255, 129, 104, 95),
+      ),
+      backgroundColor: const Color.fromARGB(255, 241, 220, 213),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
