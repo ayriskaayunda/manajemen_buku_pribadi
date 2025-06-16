@@ -37,7 +37,7 @@ class BookDetailPage extends StatelessWidget {
                       Icon(Icons.book, size: 64, color: Colors.blue),
                       SizedBox(height: 12),
                       Text(
-                        'book',
+                        'buku',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,

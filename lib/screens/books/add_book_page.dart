@@ -22,7 +22,8 @@ class _AddBookPageState extends State<AddBookPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add New Book'),
+        title: Text('Tambah buku'),
+        foregroundColor: Colors.white,
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 124, 104, 97),
       ),
@@ -36,7 +37,7 @@ class _AddBookPageState extends State<AddBookPage> {
               TextFormField(
                 controller: titleController,
                 decoration: InputDecoration(
-                  labelText: 'Book Title',
+                  labelText: 'Judul buku',
                   labelStyle: TextStyle(
                     color: Colors.grey[700],
                     fontWeight: FontWeight.w600,
@@ -79,7 +80,7 @@ class _AddBookPageState extends State<AddBookPage> {
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter a Title';
+                    return 'wajib Masukan judul';
                   }
                   return null;
                 },
@@ -88,7 +89,7 @@ class _AddBookPageState extends State<AddBookPage> {
               TextFormField(
                 controller: authorController,
                 decoration: InputDecoration(
-                  labelText: 'Author',
+                  labelText: 'Pengarang',
                   labelStyle: TextStyle(
                     color: Colors.grey[700],
                     fontWeight: FontWeight.w600,
@@ -131,7 +132,7 @@ class _AddBookPageState extends State<AddBookPage> {
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter an Author';
+                    return 'wajib masukan pengarang';
                   }
                   return null;
                 },
@@ -140,7 +141,7 @@ class _AddBookPageState extends State<AddBookPage> {
               TextFormField(
                 controller: descriptionController,
                 decoration: InputDecoration(
-                  labelText: 'Description',
+                  labelText: 'Deskripsi',
                   labelStyle: TextStyle(
                     color: Colors.grey[700],
                     fontWeight: FontWeight.w600,
@@ -183,7 +184,7 @@ class _AddBookPageState extends State<AddBookPage> {
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter a Description';
+                    return 'wajib masukan deskripsi';
                   }
                   return null;
                 },
@@ -235,7 +236,7 @@ class _AddBookPageState extends State<AddBookPage> {
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter a Genre';
+                    return 'wajib masukan genre';
                   }
                   return null;
                 },
@@ -258,7 +259,7 @@ class _AddBookPageState extends State<AddBookPage> {
                     Navigator.pop(context); // Go back to the list of books
                   }
                 },
-                child: Text('Add Book'),
+                child: Text('Tambah'),
               ),
             ],
           ),

@@ -104,7 +104,7 @@ class _EditBookPageState extends State<EditBookPage> {
                     Navigator.pop(context); // Go back to the list of books
                   }
                 },
-                child: Text('Save Changes'),
+                child: Text('di Perbarui'),
               ),
             ],
           ),

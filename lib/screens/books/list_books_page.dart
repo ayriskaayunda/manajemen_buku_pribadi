@@ -96,7 +96,7 @@ class _ListBookPageState extends State<ListBookPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           IconButton(
-                            icon: Icon(Icons.edit, color: Colors.blueAccent),
+                            icon: Icon(Icons.edit, color: Colors.brown),
                             onPressed: () {
                               Navigator.push(
                                 context,
@@ -110,9 +110,45 @@ class _ListBookPageState extends State<ListBookPage> {
                             },
                           ),
                           IconButton(
-                            icon: Icon(Icons.delete, color: Colors.redAccent),
+                            icon: Icon(Icons.delete, color: Colors.black),
                             onPressed: () {
-                              _deleteBook(book.id!);
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text("Konfirmasi"),
+                                    content: Text(
+                                      "Apakah Anda yakin ingin menghapus buku ini?",
+                                    ),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: Text("Batal"),
+                                        onPressed: () {
+                                          Navigator.of(
+                                            context,
+                                          ).pop(); // Tutup dialog
+                                        },
+                                      ),
+                                      TextButton(
+                                        child: Text(
+                                          "Hapus",
+                                          style: TextStyle(
+                                            color: Colors.black54,
+                                          ),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.of(
+                                            context,
+                                          ).pop(); // Tutup dialog
+                                          _deleteBook(
+                                            book.id!,
+                                          ); // Lanjutkan menghapus
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
                             },
                           ),
                         ],
@@ -133,7 +169,7 @@ class _ListBookPageState extends State<ListBookPage> {
     return Scaffold(
       drawer: Drawer(
         child: Container(
-          color: const Color.fromARGB(255, 240, 236, 234),
+          color: const Color.fromARGB(255, 250, 246, 245),
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
@@ -157,7 +193,7 @@ class _ListBookPageState extends State<ListBookPage> {
                     Text(
                       'Ayriska ayunda',
                       style: TextStyle(
-                        color: const Color.fromARGB(255, 61, 59, 59),
+                        color: const Color.fromARGB(255, 255, 253, 253),
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -166,7 +202,7 @@ class _ListBookPageState extends State<ListBookPage> {
                     Text(
                       "All about Butterfly",
                       style: TextStyle(
-                        color: const Color.fromARGB(255, 194, 189, 188),
+                        color: const Color.fromARGB(255, 248, 247, 247),
                         fontSize: 15,
                         fontWeight: FontWeight.normal,
                       ),
@@ -189,14 +225,40 @@ class _ListBookPageState extends State<ListBookPage> {
                 leading: Icon(Icons.logout, color: Colors.redAccent),
                 title: Text('Keluar'),
                 onTap: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    LoginScreen.id,
-                    (route) => false,
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Konfirmasi Logout"),
+                        content: Text("Apakah Anda yakin ingin keluar?"),
+                        actions: <Widget>[
+                          TextButton(
+                            child: Text("Batal"),
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Tutup dialog
+                            },
+                          ),
+                          TextButton(
+                            child: Text(
+                              "Keluar",
+                              style: TextStyle(color: Colors.redAccent),
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Tutup dialog
+                              Navigator.pushNamedAndRemoveUntil(
+                                context,
+                                LoginScreen.id,
+                                (route) => false,
+                              );
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text("Logout berhasil")),
+                              );
+                            },
+                          ),
+                        ],
+                      );
+                    },
                   );
-                  ScaffoldMessenger.of(
-                    context,
-                  ).showSnackBar(SnackBar(content: Text("Logout berhasil")));
                 },
               ),
             ],
@@ -204,7 +266,7 @@ class _ListBookPageState extends State<ListBookPage> {
         ),
       ),
       appBar: AppBar(
-        title: Text(selectedIndex == 0 ? 'Daftar Buku' : 'Profil'),
+        title: Text(selectedIndex == 0 ? 'Daftar Buku' : 'Profil Aplikasi'),
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 143, 124, 117),
         foregroundColor: Colors.white,
